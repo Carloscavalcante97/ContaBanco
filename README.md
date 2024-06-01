@@ -34,3 +34,7 @@ Este projeto tem como objetivo criar um programa que receberá dados via termina
       ```plaintext
       "Olá [Nome Cliente], obrigado por criar uma conta em nosso banco, sua agência é [Agencia], conta [Numero] e seu saldo [Saldo] já está disponível para saque."
       ```
+5. **Processamento de depósitos e saques**
+ ```plaintext
+     -Foi adicionado ao codigo de forma extra funções para depósitos e saques deixando assim mais completo
+      ```
