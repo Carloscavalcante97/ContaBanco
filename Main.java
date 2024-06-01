@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String userConta = "";
-        boolean menu = false;
-        int menuSaque = 0;
+        String userConta ;
+        int menuSaque;
         ContaTerminal userData = new ContaTerminal();
 
         Scanner read = new Scanner(System.in);
@@ -26,12 +25,14 @@ public class Main {
             System.out.print("Olá " + userData.NOME + ", obrigado por criar uma conta em nosso banco,\n" +
                     " sua agência é " + userData.AGENCIA + " , conta " + userData.NUMERO + "\n" +
                     "  seu saldo R$" + userData.Saldo + " já está disponível para saque ");
-            ;
-            System.out.print("\n1- Para realizar um depositar digite 1  \n");
-            System.out.print("\n2- Para realizar um saque digite 2 \n");
-            System.out.print("\n3- Para realizar um sair digite 0 \n");
-            menuSaque = read.nextInt();
-            while (menuSaque != 0 && menuSaque != 1 && menuSaque != 2) {
+
+            boolean b = true;
+            while (b){
+                System.out.print("\n1- Para realizar um depositar digite 1  \n");
+                System.out.print("\n2- Para realizar um saque digite 2 \n");
+                System.out.print("\n3- Para realizar um sair digite 0 \n");
+                menuSaque = read.nextInt();
+            if (menuSaque != 0 && menuSaque != 1 && menuSaque != 2) {
                 System.out.print("Opção inválida digite novamente: ");
                 menuSaque = read.nextInt();
             }
@@ -39,18 +40,25 @@ public class Main {
                 System.out.print("Insira o valor do saque: \n");
                 float valorSacado = read.nextFloat();
                 userData.Saque(valorSacado);
-                System.out.print("Valor sacado com sucesso, Saldo atualizado: R$" + userData.Saldo + "\nObrigado por usar nosso sistema!");
+                System.out.print("Valor sacado com sucesso, Saldo atualizado: R$" + userData.Saldo + "\n");
 
             } else if (menuSaque == 1) {
                 System.out.print("Qual valor deseja Depositar: ");
                 float valorDeposito = read.nextFloat();
                 userData.Deposito(valorDeposito);
                 System.out.print("Saldo atualizado: " + userData.Saldo);
+
             } else if (menuSaque == 0) {
                 System.out.print("Deslogado com sucesso.");
-            }
+                b = false;
+            } else {
+                System.out.print("Opção inválida, digite novamente.\n");
         }
+        }
+
+
     }
+}
 }
 
 
